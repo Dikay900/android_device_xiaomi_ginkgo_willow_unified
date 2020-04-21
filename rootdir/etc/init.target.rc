@@ -204,10 +204,31 @@ service energy-awareness /system/vendor/bin/energy-awareness
     group system
     oneshot
 
-service nv_mac /vendor/bin/nv_mac
-    class late_start
-    user system
-    group system inet net_admin wifi net_raw
+service adsprpcd_root /vendor/bin/adsprpcd
+   class main
+   user media
+   group media
+
+service adsprpcd /vendor/bin/adsprpcd audiopd
+   class main
+   user media
+   group media
+
+service adsprpcd_sensorspd /vendor/bin/adsprpcd sensorspd
+   class main
+   user system
+   group system
+
+service cdsprpcd /vendor/bin/cdsprpcd
+   class main
+   user system
+   group system
+
+service boot_lc_main /system/bin/logcat -f /cache/boot_lc_main.txt
+    class main
+    user root
+    group root system
+    disabled
     oneshot
 
 on property:sys.thermallct.isincall=1
