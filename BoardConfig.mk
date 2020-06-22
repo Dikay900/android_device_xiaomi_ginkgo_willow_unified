@@ -8,6 +8,8 @@ BOARD_VENDOR := xiaomi
 
 DEVICE_PATH := device/xiaomi/ginkgo
 
+-include vendor/aeonax/ANXCamera/BoardConfigAnx.mk
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
